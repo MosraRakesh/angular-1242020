@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { products } from "../products";
+import { CartService } from "../cart.service";
 
 @Component({
   selector: "app-product-details",
@@ -12,15 +13,25 @@ export class ProductDetailsComponent implements OnInit {
 
   //constructor used for DI
   constructor(
-    private route: ActivatedRoute //Dependency Injection
+    private route: ActivatedRoute,
+    private cartService: CartService //Dependency Injection
   ) {}
 
   //LifeCycle Hook
   ngOnInit() {
     //call a get API
-    this.route.paramMap.subscribe((params) =>{
-      this.product = products[+params.get('productId')];
-    })
+    this.route.paramMap.subscribe(
+      params => {
+        this.product = products[+params.get("productId")];
+      },
+      err => {
+        console.log("some error occured");
+      }
+    );
+  }
 
+  addToCart(product) {
+    this.cartService.addToCart(product);
+    window.alert("Your product has been added to the cart, please checkout");
   }
 }

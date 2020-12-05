@@ -7,6 +7,11 @@
       {{product.name}}
     </a>
 	</h3>
+
+  <p>
+  Double Price custom:{{product.price | divideby |currency:'INR'}}
+  </p>
+
 	<p *ngIf="product.description">
 		Description: {{product.description}}
 	</p>
