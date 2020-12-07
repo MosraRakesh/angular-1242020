@@ -1,0 +1,10 @@
+<h3>Shipping Prices Page </h3>
+
+<div  *ngFor= "let costs of shippingCosts | async">
+  <span>
+    {{ costs.type }}
+  </span>
+  <span>
+    {{ costs.price }}
+  </span>
+</div>
