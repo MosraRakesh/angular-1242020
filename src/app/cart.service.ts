@@ -1,30 +1,37 @@
+import { Inject, Injectable, OnInit } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-
+import { LOCAL_STORAGE, StorageService } from "ngx-webstorage-service";
 
 @Injectable()
 export class CartService {
   items = [];
 
   constructor(
-    private http:HttpClient
-  ) { }
+    @Inject(LOCAL_STORAGE) private storage: StorageService,
+    private http: HttpClient
+    ) { }
 
-  addToCart(product){
-    this.items.push(product);
+  ngOnInit() {
+    this.items = this.storage.get("myCart") ? this.storage.get("myCart") : [];
   }
 
-  getItems(){
+  addToCart(product) {
+    this.items.push(product);
+    this.storage.set("myCart", this.items);
+  }
+
+  getItems() {
+    this.storage.get("myCart");
     return this.items;
   }
 
-  clearCart(){
+  clearCart() {
     this.items = [];
+    this.storage.remove("myCart");
     return this.items;
   }
 
   getShippingPrices(){
-    return this.http.get('/assets/shipping.json');
+    return this.http.get("/assets/shipping.json");
   }
-
 }

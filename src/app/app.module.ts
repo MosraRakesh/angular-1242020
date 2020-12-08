@@ -14,6 +14,7 @@ import { DividebyPipe } from './divideby.pipe';
 import { CartService } from './cart.service';
 import { CartComponent } from './cart/cart.component';
 import { ShippingComponent } from './shipping/shipping.component';
+import { GeneralErrorComponent } from './general-error/general-error.component';
 
 @NgModule({
   imports: [
@@ -24,8 +25,8 @@ import { ShippingComponent } from './shipping/shipping.component';
       { path: "", component: ProductListComponent },
       { path: 'products/:productId', component: ProductDetailsComponent },
       {path:'cart',component:CartComponent},
-      { path: 'shipping', component: ShippingComponent }
-
+      { path: 'shipping', component: ShippingComponent },
+      { path: 'generalerror', component: GeneralErrorComponent }
       ])
   ],
   declarations: [
@@ -37,7 +38,9 @@ import { ShippingComponent } from './shipping/shipping.component';
     DoublePipe,
     DividebyPipe,
     CartComponent,
-    ShippingComponent
+    ShippingComponent,
+    GeneralErrorComponent,
+   
   ],
   bootstrap: [AppComponent],
   providers: [CartService]
