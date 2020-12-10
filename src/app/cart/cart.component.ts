@@ -36,6 +36,6 @@ export class CartComponent implements OnInit {
   }
 
   routeToGeneralErro() {
-    this.router.navigateByUrl("error");
+    this.router.navigateByUrl("generalerror");
   }
 }
