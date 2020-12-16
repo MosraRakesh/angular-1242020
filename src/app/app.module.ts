@@ -16,6 +16,7 @@ import { CartComponent } from "./cart/cart.component";
 import { ShippingComponent } from "./shipping/shipping.component";
 import { GeneralErrorComponent } from "./general-error/general-error.component";
 import { LoginComponent } from "./login/login.component";
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import { LoginComponent } from "./login/login.component";
       { path: "cart", component: CartComponent },
       { path: "shipping", component: ShippingComponent },
       { path: "generalerror", component: GeneralErrorComponent },
-      { path: "", component: LoginComponent }
+      { path: "", component: LoginComponent },
+      {path:"register",component:RegisterComponent}
     ])
   ],
   declarations: [
@@ -42,7 +44,8 @@ import { LoginComponent } from "./login/login.component";
     CartComponent,
     ShippingComponent,
     GeneralErrorComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   bootstrap: [AppComponent],
   providers: [CartService]
