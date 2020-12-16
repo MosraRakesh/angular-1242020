@@ -17,6 +17,8 @@ import { ShippingComponent } from "./shipping/shipping.component";
 import { GeneralErrorComponent } from "./general-error/general-error.component";
 import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from './register/register.component';
+import { AccountserviceService } from './accountservice.service';
+import { AccountService } from './account.service';
 
 @NgModule({
   imports: [
@@ -48,7 +50,7 @@ import { RegisterComponent } from './register/register.component';
     RegisterComponent
   ],
   bootstrap: [AppComponent],
-  providers: [CartService]
+  providers: [CartService, AccountService]
 })
 export class AppModule {}
 
