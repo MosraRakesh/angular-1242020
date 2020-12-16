@@ -9,7 +9,8 @@ import { AccountService } from "../account.service";
   styleUrls: ["./register.component.css"]
 })
 export class RegisterComponent implements OnInit {
-  users = User;
+  userName:String='default';
+ 
   constructor(
     private route: ActivatedRoute,
     private accountservice: AccountService
@@ -17,7 +18,8 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {}
 
-  register(users) {
+  register(username,password,lastName,firstName) {
+    
     this.accountservice.register(users);
   }
 }

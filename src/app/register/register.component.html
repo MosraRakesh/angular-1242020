@@ -6,20 +6,40 @@
   <div class="card-body">
     <div class="form-group">
       <label for="firstName">First Name</label>
-      <input type="text" formControlName="firstName" class="form-control" />
+      <input
+        type="text"
+        [(ngModel)]="firstName"
+        formControlName="firstName"
+        class="form-control"
+      />
     </div>
     <div class="form-group">
       <label for="lastName">Last Name</label>
-      <input type="text" formControlName="lastName" class="form-control" />
+      <input
+        type="text"
+        [(ngModel)]="lastName"
+        formControlName="lastName"
+        class="form-control"
+      />
     </div>
     <div class="form-group">
       <label for="username">Username</label>
-      <input type="text" formControlName="username" class="form-control" />
+      <input
+        type="text"
+        [(ngModel)]="username"
+        formControlName="username"
+        class="form-control"
+      />
     </div>
     <div class="form-group">
       <label for="password">Password</label>
-      <input type="password" formControlName="password" class="form-control" />
+      <input
+        type="password"
+        [(ngModel)]="password"
+        formControlName="password"
+        class="form-control"
+      />
     </div>
   </div>
-  <button (click)="register(user)">submit</button>
+  <button (click)="register(username,password,lastName,firstName)">submit</button>
 </div>
