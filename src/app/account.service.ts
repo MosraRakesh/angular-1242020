@@ -1,37 +1,23 @@
-import { Injectable } from "@angular/core";
-import { Router } from "@angular/router";
-import { HttpClient } from "@angular/common/http";
-import { BehaviorSubject, Observable } from "rxjs";
-import { map } from "rxjs/operators";
-import { User } from "./user";
-import { environment } from "../environments/environment";
+import { Inject, Injectable, OnInit } from "@angular/core";
+import { HttpClient } from '@angular/common/http';
+import { LOCAL_STORAGE, StorageService } from "ngx-webstorage-service";
 
-@Injectable({ providedIn: "root" })
+@Injectable()
 export class AccountService {
-  private userSubject: BehaviorSubject<User>;
-  public user: Observable<User>;
-  constructor(private router: Router, private http: HttpClient) {
-    this.userSubject = new BehaviorSubject<User>(
-      JSON.parse(localStorage.getItem("user"))
-    );
-    this.user = this.userSubject.asObservable();
+  users=[];
+
+   constructor(
+    @Inject(LOCAL_STORAGE) private storage: StorageService,
+    private http: HttpClient
+    ) { }
+
+    ngOnInit() {
+    this.users = this.storage.get("user") ? this.storage.get("user") : [];
   }
-  public get userValue(): User {
-    return this.userSubject.value;
+  login(user){
+
   }
-  login(username, password) {
-    return this.http
-      .post<User>(`${environment.apiUrl}/users/authenticate`, {
-        username,
-        password
-      })
-      .pipe(
-        map(user => {
-          // store user details and jwt token in local storage to keep user logged in between page refreshes
-          localStorage.setItem("user", JSON.stringify(user));
-          this.userSubject.next(user);
-          return user;
-        })
-      );
+  register(){
+    
   }
 }
