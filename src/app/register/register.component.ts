@@ -1,7 +1,8 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Inject, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { User } from "../user";
 import { AccountService } from "../account.service";
+import { LOCAL_STORAGE, StorageService } from "ngx-webstorage-service";
 
 @Component({
   selector: "app-register",
@@ -9,17 +10,23 @@ import { AccountService } from "../account.service";
   styleUrls: ["./register.component.css"]
 })
 export class RegisterComponent implements OnInit {
-  userName:String='default';
- 
+  username: String;
+  firstName: String;
+  LastName: String;
+  password: String;
+
   constructor(
     private route: ActivatedRoute,
-    private accountservice: AccountService
+    private accountservice: AccountService,
+    @Inject(LOCAL_STORAGE) private storage: StorageService
   ) {}
 
   ngOnInit() {}
 
-  register(username,password,lastName,firstName) {
-    
-    this.accountservice.register(users);
+  register(event: Event) {
+    console.log(this.username + "-------------" + this.firstName);
+    // user=new User();
+
+    //this.accountservice.register();
   }
 }

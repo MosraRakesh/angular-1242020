@@ -4,42 +4,18 @@
 <div class="card">
   <h4 class="card-header">Register</h4>
   <div class="card-body">
-    <div class="form-group">
-      <label for="firstName">First Name</label>
-      <input
-        type="text"
-        [(ngModel)]="firstName"
-        formControlName="firstName"
-        class="form-control"
-      />
-    </div>
-    <div class="form-group">
-      <label for="lastName">Last Name</label>
-      <input
-        type="text"
-        [(ngModel)]="lastName"
-        formControlName="lastName"
-        class="form-control"
-      />
-    </div>
-    <div class="form-group">
-      <label for="username">Username</label>
-      <input
-        type="text"
-        [(ngModel)]="username"
-        formControlName="username"
-        class="form-control"
-      />
-    </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input
-        type="password"
-        [(ngModel)]="password"
-        formControlName="password"
-        class="form-control"
-      />
-    </div>
+    <label for="firstName">First Name</label>
+    <input type="text" class="form-control" [(ngModel)]="firstName" />
+    <p>{{firstName}}</p>
+
+    <label for="lastName">Last Name</label>
+    <input type="text" [(ngModel)]="lastName" class="form-control" />
+
+    <label for="username">Username</label>
+    <input type="text" [(ngModel)]="username" class="form-control" />
+
+    <label for="password">Password</label>
+    <input type="password" [(ngModel)]="password" class="form-control" />
   </div>
-  <button (click)="register(username,password,lastName,firstName)">submit</button>
+  <button (click)="register($event)">submit</button>
 </div>

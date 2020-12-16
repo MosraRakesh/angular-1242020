@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule } from "@angular/router";
-import { ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from "./app.component";
@@ -16,15 +16,16 @@ import { CartComponent } from "./cart/cart.component";
 import { ShippingComponent } from "./shipping/shipping.component";
 import { GeneralErrorComponent } from "./general-error/general-error.component";
 import { LoginComponent } from "./login/login.component";
-import { RegisterComponent } from './register/register.component';
-import { AccountserviceService } from './accountservice.service';
-import { AccountService } from './account.service';
+import { RegisterComponent } from "./register/register.component";
+import { AccountserviceService } from "./accountservice.service";
+import { AccountService } from "./account.service";
 
 @NgModule({
   imports: [
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
     RouterModule.forRoot([
       { path: "products", component: ProductListComponent },
       { path: "products/:productId", component: ProductDetailsComponent },
@@ -32,7 +33,7 @@ import { AccountService } from './account.service';
       { path: "shipping", component: ShippingComponent },
       { path: "generalerror", component: GeneralErrorComponent },
       { path: "", component: LoginComponent },
-      {path:"register",component:RegisterComponent}
+      { path: "register", component: RegisterComponent }
     ])
   ],
   declarations: [
