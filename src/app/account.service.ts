@@ -12,7 +12,7 @@ export class AccountService {
   ) {}
 
   ngOnInit() {
-    this.users = this.storage.get("user") ? this.storage.get("user") : [];
+    this.users = this.storage.get("myusers") ? this.storage.get("myusers") : [];
   }
   login(user) {}
   register(user) {

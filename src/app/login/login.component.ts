@@ -1,4 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Inject, OnInit } from "@angular/core";
+import { LOCAL_STORAGE, StorageService } from "ngx-webstorage-service";
+import { ActivatedRoute } from "@angular/router";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-login",
@@ -6,9 +9,26 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./login.component.css"]
 })
 export class LoginComponent implements OnInit {
-  constructor() {}
+  users = [];
+  username: String = "";
+  password: String = "";
+  constructor(
+    private router: Router,
+    @Inject(LOCAL_STORAGE) private storage: StorageService
+  ) {}
 
   ngOnInit() {}
 
-  validateUser() {}
+  validateUser() {
+    this.users = this.storage.get("myusers");
+    this.users.forEach(function(value) {
+      console.log(value);
+      if (
+        value.username === this.username &&
+        value.password === this.password
+      ) {
+        return true;
+      }
+    });
+  }
 }

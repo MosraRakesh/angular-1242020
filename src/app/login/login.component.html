@@ -3,13 +3,18 @@
 	<div class="card-body">
 		<label for="username">Username</label>
 		<input type="text" [(ngModel)]="username" class="form-control" />
+		<p>{{username}}</p>
 		<label for="password">Password</label>
 		<input type="password" [(ngModel)]="password" class="form-control" />
 		<br />
 		<button [disabled]="loading" class="btn btn-primary"
-      (class)="validateUser()">
+      (class)="validateUser()"
+      >
       Login
     </button>
+		<p *ngIf="validateUser()">
+			<a [routerLink]="['/products']"></a>
+		</p>
 		<a [routerLink]="['/register']" class="button fancy-button">
 			Register
 		</a>
