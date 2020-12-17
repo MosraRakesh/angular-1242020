@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   username: String = "";
   password: String = "";
   constructor(
+    private route: ActivatedRoute,
     private router: Router,
     @Inject(LOCAL_STORAGE) private storage: StorageService
   ) {}
