@@ -10,8 +10,8 @@ import { Router } from "@angular/router";
 })
 export class LoginComponent implements OnInit {
   users = [];
-  username: String = "";
-  password: String = "";
+  username = "";
+  password = "";
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -20,14 +20,15 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {}
 
-  validateUser() {
+  validateUser(event: Event) {
     this.users = this.storage.get("myusers");
+    console.log(event);
+    console.log(this.username + "____" + this.password);
+    var self = this;
     this.users.forEach(function(value) {
       console.log(value);
-      if (
-        value.username === this.username &&
-        value.password === this.password
-      ) {
+      if (value.username == self.username && value.password == self.password) {
+        window.alert("login successful");
         return true;
       }
     });

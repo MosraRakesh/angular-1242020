@@ -2,19 +2,17 @@
 	<h4 class="card-header">Login</h4>
 	<div class="card-body">
 		<label for="username">Username</label>
-		<input type="text" [(ngModel)]="username" class="form-control" />
+		<input type="text" class="form-control" [(ngModel)]="username"  />
 		<p>{{username}}</p>
 		<label for="password">Password</label>
-		<input type="password" [(ngModel)]="password" class="form-control" />
+		<input type="password"  class="form-control" [(ngModel)]="password" />
 		<br />
 		<button [disabled]="loading" class="btn btn-primary"
-      (click)="validateUser()"
+      (click)="validateUser($event)"
       >
       Login
     </button>
-		<p *ngIf="validateUser()">
-			<a [routerLink]="['/products']"></a>
-		</p>
+
 		<a [routerLink]="['/register']" class="button fancy-button">
 			Register
 		</a>

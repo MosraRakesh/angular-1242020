@@ -18,5 +18,6 @@ export class AccountService {
   register(user) {
     this.users.push(user);
     this.storage.set("myusers", this.users);
+    window.alert("registration successful");
   }
 }
