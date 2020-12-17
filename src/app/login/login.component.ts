@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
       console.log(value);
       if (value.username == self.username && value.password == self.password) {
         window.alert("login successful");
-        this.router.navigate(["/products"]);
+        this.route.navigate(["/products"]);
         return true;
       }
     });
